@@ -86,6 +86,4 @@ The system utilizes these primary database tables:
 | `message` | Contact form submissions |
 
 
-## 📄 License
 
-This project is open-source. Please refer to the license file for usage terms.
