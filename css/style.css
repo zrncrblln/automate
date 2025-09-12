@@ -2,6 +2,13 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 :root {
+  /* Base Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #ccc;
+  --color-text-dark: #222;
+
+  /* Theme Colors */
   --primary-color: #5682B1;
   --secondary-color: #739EC9;
   --success-color: #739EC9;
@@ -9,12 +16,25 @@
   --warning-color: #FFE8DB;
   --info-color: #739EC9;
   --light-color: #FFE8DB;
-  --dark-color: #ffffff;
-  --bg-color: #ffffff;
-  --text-color: #FFE8DB;
-  --navbar-bg: linear-gradient(135deg, #5682B1, #739EC9);
-  --card-bg: #739EC9;
+  --dark-color: #121212;
+
+  /* Background and Text */
+  --bg-color: var(--color-white);
+  --text-color: var(--color-text-dark);
+
+  /* Gradients and Backgrounds */
+  --navbar-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --card-bg: var(--secondary-color);
+
+  /* Shadows */
   --shadow: 0 2px 8px rgba(86, 130, 177, 0.5);
+  --shadow-hover: 0 8px 20px rgba(86, 130, 177, 0.9);
+  --shadow-blue: 0 8px 20px rgba(0, 123, 255, 0.5);
+  --shadow-blue-hover: 0 12px 30px rgba(0, 123, 255, 0.7);
+  --shadow-focus: 0 0 5px rgba(0, 123, 255, 0.5);
+  --shadow-btn: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
   --transition: all 0.3s ease;
 }
 
@@ -54,7 +74,7 @@ body.body-login {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   padding-top: 0;
 }
 
@@ -71,11 +91,11 @@ body.body-login {
 }
 
 .navbar-nav .nav-link {
-  transition: var(--transition);
+  transition: var(--color-white);
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--warning-color) !important;
+  color: var(--color-white) !important;
 }
 
 .theme-toggle {
@@ -139,7 +159,7 @@ body.body-login {
 }
 
 .welcome-text h4 {
-  color: #fff;
+  color: var(--color-white);
   font-size: 3.5rem;
   font-family: 'Lobster', cursive;
   margin-bottom: 10px;
@@ -147,7 +167,7 @@ body.body-login {
 }
 
 .welcome-text p {
-  color: #222;
+  color: var(--color-text-dark);
   background: rgba(255, 255, 255, 0.7);
   padding: 10px 15px;
   border-radius: 8px;
@@ -182,21 +202,21 @@ body.body-login {
 
 .about-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(86, 130, 177, 0.9);
+  box-shadow: var(--shadow-hover);
 }
 
 .about-box h5 {
   font-family: 'Lobster', cursive;
   font-size: 2.2rem;
   margin-bottom: 20px;
-  color: var(--text-color);
+  color: var(--color-white);
   font-weight: 700;
 }
 
 .about-box p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--color-white);
   margin-bottom: 15px;
 }
 
@@ -227,7 +247,7 @@ textarea,
 input,
 select {
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray);
   padding: 10px;
   font-size: 1rem;
   width: 100%;
@@ -242,7 +262,7 @@ input:focus,
 select:focus {
   border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: var(--shadow-focus);
 }
 
 .login {
@@ -251,8 +271,8 @@ select:focus {
   background: linear-gradient(135deg, var(--primary-color), #0056b3);
   padding: 30px 25px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
-  color: #fff;
+  box-shadow: var(--shadow-blue);
+  color: var(--color-white);
   font-weight: 600;
   margin: 20px auto;
   transition: var(--transition);
@@ -260,7 +280,7 @@ select:focus {
 }
 
 .login:hover {
-  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.7);
+  box-shadow: var(--shadow-blue-hover);
   transform: translateY(-2px);
 }
 
@@ -290,7 +310,7 @@ select:focus {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-btn);
 }
 
 .card {
@@ -338,7 +358,7 @@ select:focus {
 
 .dashboard-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-btn);
 }
 
 .dashboard-card i {

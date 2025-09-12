@@ -50,7 +50,7 @@ if ($setting != 0) {
 				</section>
 
 				<section id="about" class="d-flex justify-content-center align-items-center">
-					<div class="about-box background: transparent;">
+					<div class="about-box background: transparent;" style="color-white;">
 						<h5>About Us</h5>
 						<p><?= $setting['slogan'] ?></p>
 						<p><?= $setting['about'] ?></p>
