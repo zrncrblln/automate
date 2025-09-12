@@ -2,14 +2,12 @@
 session_start();
 
 if (isset($_POST['uname']) &&
-    isset($_POST['pass']) &&
-    isset($_POST['role'])) {
+    isset($_POST['pass'])) {
 
 	include "../DB_connection.php";
-	
+
 	$uname = $_POST['uname'];
 	$pass = $_POST['pass'];
-	$role = $_POST['role'];
 
 	if (empty($uname)) {
 		$em  = "Username is required";
@@ -19,58 +17,56 @@ if (isset($_POST['uname']) &&
 		$em  = "Password is required";
 		header("Location: ../login.php?error=$em");
 		exit;
-	}else if (empty($role)) {
-		$em  = "An error Occurred";
-		header("Location: ../login.php?error=$em");
-		exit;
 	}else {
-        
-        if($role == '1'){
-        	$sql = "SELECT * FROM admin 
-        	        WHERE username = ?";
-        	$role = "Admin";
-        }else if($role == '2'){
-        	$sql = "SELECT * FROM teachers 
-        	        WHERE username = ?";
-        	$role = "Teacher";
-        }else if($role == '3'){
-        	$sql = "SELECT * FROM students 
-        	        WHERE username = ?";
-        	$role = "Student";
-        }else if($role == '4'){
-        	$sql = "SELECT * FROM registrar_office 
-        	        WHERE username = ?";
-        	$role = "Registrar Office";
+        // Auto-detect role by checking tables in order
+        $tables = [
+            'admin' => ['table' => 'admin', 'role' => 'Admin', 'id_field' => 'admin_id'],
+            'teachers' => ['table' => 'teachers', 'role' => 'Teacher', 'id_field' => 'teacher_id'],
+            'students' => ['table' => 'students', 'role' => 'Student', 'id_field' => 'student_id'],
+            'registrar_office' => ['table' => 'registrar_office', 'role' => 'Registrar Office', 'id_field' => 'r_user_id']
+        ];
+
+        $user = null;
+        $role = null;
+        $id_field = null;
+
+        foreach ($tables as $key => $table_info) {
+            $sql = "SELECT * FROM " . $table_info['table'] . " WHERE username = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$uname]);
+
+            if ($stmt->rowCount() == 1) {
+                $user = $stmt->fetch();
+                $role = $table_info['role'];
+                $id_field = $table_info['id_field'];
+                break;
+            }
         }
 
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname]);
-
-        if ($stmt->rowCount() == 1) {
-        	$user = $stmt->fetch();
+        if ($user) {
         	$username = $user['username'];
         	$password = $user['password'];
-        	
+
             if ($username === $uname) {
             	if (password_verify($pass, $password)) {
             		$_SESSION['role'] = $role;
             		if ($role == 'Admin') {
-                        $id = $user['admin_id'];
+                        $id = $user[$id_field];
                         $_SESSION['admin_id'] = $id;
                         header("Location: ../admin/index.php");
                         exit;
                     }else if ($role == 'Student') {
-                        $id = $user['student_id'];
+                        $id = $user[$id_field];
                         $_SESSION['student_id'] = $id;
                         header("Location: ../Student/index.php");
                         exit;
                     }else if ($role == 'Registrar Office') {
-                        $id = $user['r_user_id'];
+                        $id = $user[$id_field];
                         $_SESSION['r_user_id'] = $id;
                         header("Location: ../RegistrarOffice/index.php");
                         exit;
                     }else if($role == 'Teacher'){
-                    	$id = $user['teacher_id'];
+                    	$id = $user[$id_field];
                         $_SESSION['teacher_id'] = $id;
                         header("Location: ../Teacher/index.php");
                         exit;
@@ -79,7 +75,7 @@ if (isset($_POST['uname']) &&
 				        header("Location: ../login.php?error=$em");
 				        exit;
                     }
-				    
+
             	}else {
 		        	$em  = "Incorrect Username or Password";
 				    header("Location: ../login.php?error=$em");

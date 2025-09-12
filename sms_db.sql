@@ -154,7 +154,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `current_year`, `current_semester`, `school_name`, `slogan`, `about`) VALUES
-(1, 2023, 'II', 'Group 6', 'Learn and Grow', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.');
+(1, 2023, 'II', 'Wesleyan University-Philippines', 'Learn and Grow', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.');
 
 -- --------------------------------------------------------
 

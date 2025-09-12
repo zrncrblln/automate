@@ -30,30 +30,49 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  margin: 0;
-  padding: 0;
   transition: var(--transition);
 }
 
-body.body-home, body.body-login {
-  background: url(../img/student-Male.png) no-repeat center center fixed;
-  background-size: cover;
+body.body-home,
+body.body-login {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 2px, transparent 2px, transparent 20px), var(--primary-color);
 }
 
 .black-fill {
   background: rgba(0, 0, 0, 0.3);
-  min-height: 100vh;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  height: calc(100vh - 56px); /* Adjust for navbar height */
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
 }
 
 #homeNav {
   background: var(--navbar-bg) !important;
   box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
 
 .navbar-brand img {
@@ -83,15 +102,18 @@ body.body-home, body.body-login {
 }
 
 .welcome-text {
-  min-height: 80vh;
+  flex: 1;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 120px 20px 20px 20px;
   animation: slideIn 1.5s ease forwards;
+
 }
+
 
 .welcome-text img {
   width: 120px;
@@ -102,13 +124,27 @@ body.body-home, body.body-login {
 }
 
 @keyframes slideIn {
-  0% { opacity: 0; transform: translateX(-50px); }
-  100% { opacity: 1; transform: translateX(0); }
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .welcome-text h4 {
@@ -116,7 +152,7 @@ body.body-home, body.body-login {
   font-size: 3.5rem;
   font-family: 'Lobster', cursive;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
 .welcome-text p {
@@ -130,31 +166,47 @@ body.body-home, body.body-login {
 }
 
 #about {
-  min-height: 100vh;
+  flex: 1;
+  min-height: auto;
   padding: 40px 20px;
-  background: var(--bg-color);
+  background: transparent;
+  transition: opacity 1s ease-in-out;
 }
 
-#about .card-1 {
-  max-width: 600px;
+#about.visible {
+  opacity: 1;
+}
+
+.about-box {
+  max-width: 700px;
   width: 90%;
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  margin: 0 auto;
+  padding: 30px 25px;
+  border-radius: 15px;
+  margin: 20px auto;
   transition: var(--transition);
+  background: rgba(12, 18, 24, 0.15);
+  box-shadow: 0 8px 20px rgba(86, 130, 177, 0.3);
+  border: 1px solid rgba(35, 51, 68, 0.3);
 }
 
-#about .card-1:hover {
+.about-box:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(86, 130, 177, 0.9);
 }
 
-#about .card-1 h5 {
+.about-box h5 {
   font-family: 'Lobster', cursive;
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
   color: var(--text-color);
+  font-weight: 700;
+}
+
+.about-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 15px;
 }
 
 #contact {
@@ -180,7 +232,9 @@ body.body-home, body.body-login {
   color: var(--text-color);
 }
 
-textarea, input, select {
+textarea,
+input,
+select {
   border-radius: 6px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -192,7 +246,9 @@ textarea, input, select {
   color: var(--text-color);
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus,
+input:focus,
+select:focus {
   border-color: var(--primary-color);
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -218,8 +274,15 @@ textarea:focus, input:focus, select:focus {
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .login h3 {
@@ -297,6 +360,7 @@ textarea:focus, input:focus, select:focus {
   .welcome-text h4 {
     font-size: 2.5rem;
   }
+
   .dashboard-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
