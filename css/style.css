@@ -9,8 +9,8 @@
   --warning-color: #FFE8DB;
   --info-color: #739EC9;
   --light-color: #FFE8DB;
-  --dark-color: #000000;
-  --bg-color: #000000;
+  --dark-color: #ffffff;
+  --bg-color: #ffffff;
   --text-color: #FFE8DB;
   --navbar-bg: linear-gradient(135deg, #5682B1, #739EC9);
   --card-bg: #739EC9;
@@ -49,15 +49,6 @@ body.body-login {
   background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 2px, transparent 2px, transparent 20px), var(--primary-color);
 }
 
-.black-fill {
-  background: rgba(0, 0, 0, 0.3);
-  height: calc(100vh - 56px); /* Adjust for navbar height */
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
 
 .container {
   height: 100vh;
