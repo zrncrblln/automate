@@ -2,28 +2,45 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 :root {
-  /* Modern Color Palette */
-  --primary-blue: #2563eb;
-  --accent-teal: #14b8a6;
-  --accent-emerald: #10b981;
-  --neutral-offwhite: #f8fafc;
+  /* Wesleyan University-Philippines Color Palette */
+  --wesleyan-green: #006633;
+  --wesleyan-gold: #ffd700;
+  --wesleyan-dark-green: #004d26;
+  --wesleyan-bg-light: #f8f9fa;
+  --wesleyan-text-dark: #212529;
+  --wesleyan-hover: #e9f5ec;
+  --wesleyan-border: #d6d6d6;
+
+  /* Redefined Variables for Compatibility */
+  --primary-blue: var(--wesleyan-green);
+  --accent-teal: var(--wesleyan-gold);
+  --accent-emerald: var(--wesleyan-green);
+  --neutral-offwhite: var(--wesleyan-bg-light);
   --neutral-lightgray: #e2e8f0;
-  --neutral-darkgray: #1e293b;
-  --success: #10b981;
-  --warning: #f59e0b;
+  --neutral-darkgray: var(--wesleyan-text-dark);
+  --success: var(--wesleyan-green);
+  --warning: var(--wesleyan-gold);
   --danger: #ef4444;
-  --info: #3b82f6;
+  --info: var(--wesleyan-green);
 
   /* Background and Text */
-  --bg-color: var(--neutral-offwhite);
-  --text-color: var(--neutral-darkgray);
+  --bg-color: var(--wesleyan-bg);
+  --text-color: var(--wesleyan-text);
   --card-bg: rgba(255, 255, 255, 0.8);
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
 
   /* Gradients */
-  --navbar-bg: linear-gradient(135deg, var(--primary-blue), #1d4ed8);
-  --hero-bg: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+  --navbar-bg: linear-gradient(
+    135deg,
+    var(--wesleyan-green),
+    var(--wesleyan-gold)
+  );
+  --hero-bg: linear-gradient(
+    135deg,
+    var(--wesleyan-green),
+    var(--wesleyan-gold)
+  );
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -35,6 +52,318 @@
   /* Transitions */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s ease;
+
+  /* Wesleyan Table Styles */
+  .wesleyan-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .wesleyan-table thead th {
+    background: var(--wesleyan-green);
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 14px;
+    border: none;
+  }
+
+  .wesleyan-table tbody tr:nth-child(even) {
+    background-color: var(--wesleyan-bg-light);
+  }
+
+  .wesleyan-table tbody tr:hover {
+    background-color: var(--wesleyan-hover);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .wesleyan-table td {
+    padding: 12px 16px;
+    color: var(--wesleyan-text-dark);
+    border-bottom: 1px solid var(--wesleyan-border);
+    font-weight: 500;
+  }
+
+  /* Table Title */
+  .table-title {
+    text-align: center;
+    color: var(--wesleyan-dark-green);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Action Buttons */
+  .btn-edit {
+    background: var(--wesleyan-green);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-edit:hover {
+    background: var(--wesleyan-dark-green);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-edit::before {
+    content: "✏️ ";
+  }
+
+  .btn-delete {
+    background: var(--wesleyan-text-dark);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-delete:hover {
+    background: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-delete::before {
+    content: "🗑️ ";
+  }
+
+  /* Bootstrap Table Overrides */
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--wesleyan-border);
+  }
+
+  .table thead th {
+    vertical-align: bottom;
+    background: var(--wesleyan-green);
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-align: left;
+  }
+
+  .table tbody tr:hover {
+    background-color: var(--wesleyan-hover);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--wesleyan-bg-light);
+  }
+
+  .table-bordered {
+    border: 1px solid var(--wesleyan-border);
+    border-radius: 12px;
+  }
+
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid var(--wesleyan-border);
+  }
+
+  .n-table {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .n-table thead th {
+    background: var(--wesleyan-green);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .n-table tbody tr {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .n-table tbody tr:hover {
+    background-color: var(--wesleyan-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .n-table tbody td {
+    border-bottom: 1px solid var(--wesleyan-border);
+    padding: 12px 16px;
+  }
+
+  /* Tailwind Table Styles */
+  .min-w-full {
+    min-width: 100%;
+  }
+
+  .divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 1px;
+    border-color: var(--wesleyan-border);
+  }
+
+  .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--wesleyan-border);
+  }
+
+  .bg-gray-50 {
+    background-color: var(--wesleyan-bg-light);
+  }
+
+  .text-gray-500 {
+    color: var(--neutral-darkgray);
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .tracking-wider {
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive Tables */
+  .table-responsive {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Center all tables and forms */
+  .table,
+  .n-table,
+  .wesleyan-table {
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .form-w {
+    margin: 0 auto;
+  }
+
+  /* Center table containers */
+  .table-responsive {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Search bar styling */
+  #search-field {
+    min-width: 400px;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    #search-field {
+      min-width: 250px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wesleyan-table {
+      font-size: 12px;
+    }
+
+    .wesleyan-table thead {
+      display: none;
+    }
+
+    .wesleyan-table tbody tr {
+      display: block;
+      border: 1px solid var(--wesleyan-border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .wesleyan-table tbody tr:nth-child(even) {
+      background-color: white;
+    }
+
+    .wesleyan-table tbody tr:hover {
+      background-color: var(--wesleyan-hover);
+    }
+
+    .wesleyan-table td {
+      display: block;
+      padding: 0.5rem 0;
+      border: none;
+      text-align: left;
+    }
+
+    .wesleyan-table td::before {
+      content: attr(data-label) ": ";
+      font-weight: 600;
+      color: var(--wesleyan-dark-green);
+      display: inline-block;
+      min-width: 100px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    table,
+    .table {
+      font-size: 12px;
+    }
+
+    thead th,
+    .table thead th {
+      padding: 10px 8px;
+      font-size: 12px;
+    }
+
+    td,
+    .table td {
+      padding: 8px 10px;
+    }
+  }
 
   /* Spacing (8px grid) */
   --space-xs: 8px;
@@ -49,6 +378,13 @@
   --radius: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
+
+  /* Table Colors */
+  --table-header-bg: var(--wesleyan-green);
+  --table-header-text: #ffffff;
+  --table-border: var(--wesleyan-border);
+  --table-hover-bg: var(--wesleyan-hover);
+  --table-striped-bg: var(--wesleyan-bg-light);
 }
 
 [data-theme="dark"] {
@@ -61,6 +397,8 @@
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3);
+  --table-hover-bg: rgba(233, 245, 236, 0.1);
+  --table-striped-bg: rgba(248, 249, 250, 0.1);
 }
 
 * {
@@ -149,7 +487,7 @@ body.body-login {
 }
 
 .theme-toggle:hover {
-  color: var(--warning-color);
+  color: var(--wesleyan-gold);
 }
 
 .hero-section {
@@ -193,7 +531,7 @@ body.body-login {
 }
 
 .welcome-text p {
-  color: var(--color-text-dark);
+  color: var(--wesleyan-text);
   background: rgba(255, 255, 255, 0.7);
   padding: 10px 15px;
   border-radius: 8px;
@@ -298,9 +636,9 @@ select {
 textarea:focus,
 input:focus,
 select:focus {
-  border-color: var(--primary-blue);
+  border-color: var(--wesleyan-green);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.1);
 }
 
 .login-form {
@@ -378,25 +716,33 @@ select:focus {
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: var(--wesleyan-green);
 }
 
 .btn-success {
-  background: var(--success);
+  background: var(--wesleyan-green);
   color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-success:hover {
-  background: #059669;
+  background: var(--wesleyan-dark-green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-dark {
-  background: var(--neutral-darkgray);
+  background: var(--wesleyan-text-dark);
   color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-dark:hover {
-  background: #0f172a;
+  background: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Form Styles */
@@ -441,9 +787,9 @@ select:focus {
 }
 
 .form-input:focus {
-  border-color: var(--primary-blue);
+  border-color: var(--wesleyan-green);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.2);
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -974,5 +1320,30 @@ select:focus {
   .profile-header {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Responsive Tables */
+  table,
+  .table,
+  .n-table {
+    font-size: 12px;
+  }
+
+  table thead th,
+  .table thead th,
+  .n-table thead th {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  table td,
+  .table td,
+  .n-table td {
+    padding: 8px 10px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

@@ -16,13 +16,7 @@ if ($setting != 0) {
 		<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 		<link rel="icon" href="img/logozxc.png">
 		<style>
-			/* Custom Wesleyan Colors */
-			:root {
-				--wesleyan-green: #004D26;
-				--wesleyan-gold: #FFEA70;
-				--wesleyan-bg: #F8F9FA;
-				--wesleyan-text: #212529;
-			}
+			/* Wesleyan Colors are now defined in css/style.css */
 
 			/* Smooth scroll */
 			html {
@@ -106,8 +100,7 @@ if ($setting != 0) {
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center py-4">
 					<div class="flex items-center">
-						<img src="img/logozxc.png" alt="Wesleyan University Logo" class="h-10 w-10 mr-3">
-						<span class="text-white font-bold text-xl">Wesleyan University</span>
+						<span class="text-white font-bold text-xl">Wesleyan University-Philippines</span>
 					</div>
 
 					<div class="hidden md:flex space-x-8">
@@ -152,8 +145,11 @@ if ($setting != 0) {
 			</div>
 
 			<div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">
-					Welcome to Wesleyan University-Philippines
+				<h1 class="text-5xl md:text-4xl font-bold mb-6 fade-in-up">
+					Welcome to
+				</h1>
+				<h1 class="text-5xl md:text-5xl font-bold mb-6 fade-in-up">
+					Wesleyan University-Philippines
 				</h1>
 				<p class="text-xl md:text-2xl mb-4 fade-in-up" style="animation-delay: 0.2s">
 					Student Management System

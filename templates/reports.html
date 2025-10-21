@@ -402,45 +402,21 @@ ob_start();
                 Detailed Performance Report
               </h3>
 
+              <h2 class="table-title">Detailed Performance Report</h2>
               <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
+                <table class="wesleyan-table">
+                  <thead>
                     <tr>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Student
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Class
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Avg. Grade
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Attendance
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Status
-                      </th>
+                      <th scope="col">Student</th>
+                      <th scope="col">Class</th>
+                      <th scope="col">Avg. Grade</th>
+                      <th scope="col">Attendance</th>
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
+                  <tbody>
                     <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Student">
                         <div class="flex items-center">
                           <div class="flex-shrink-0 h-10 w-10">
                             <img
@@ -457,22 +433,10 @@ ob_start();
                           </div>
                         </div>
                       </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        Class 10A
-                      </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        92.5%
-                      </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        95%
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Class">Class 10A</td>
+                      <td data-label="Avg. Grade">92.5%</td>
+                      <td data-label="Attendance">95%</td>
+                      <td data-label="Status">
                         <span
                           class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                         >
@@ -481,7 +445,7 @@ ob_start();
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Student">
                         <div class="flex items-center">
                           <div class="flex-shrink-0 h-10 w-10">
                             <img
@@ -498,22 +462,10 @@ ob_start();
                           </div>
                         </div>
                       </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        Class 10B
-                      </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        87.3%
-                      </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                      >
-                        88%
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Class">Class 10B</td>
+                      <td data-label="Avg. Grade">87.3%</td>
+                      <td data-label="Attendance">88%</td>
+                      <td data-label="Status">
                         <span
                           class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
                         >
@@ -555,10 +507,10 @@ ob_start();
         {
           data: [45, 32, 18, 8, 2],
           backgroundColor: [
-            "#10B981",
-            "#3B82F6",
-            "#F59E0B",
-            "#8B5CF6",
+            "#004D26",
+            "#004D26",
+            "#FFEA70",
+            "#FFEA70",
             "#EF4444",
           ],
         },
@@ -586,8 +538,8 @@ ob_start();
         {
           label: "Attendance Rate (%)",
           data: [88, 92, 89, 94, 91, 93],
-          borderColor: "#3B82F6",
-          backgroundColor: "rgba(59, 130, 246, 0.1)",
+          borderColor: "#004D26",
+          backgroundColor: "rgba(0, 77, 38, 0.1)",
           tension: 0.4,
         },
       ],
@@ -615,7 +567,7 @@ ob_start();
         {
           label: "Average Grade (%)",
           data: [87, 84, 91, 78, 93],
-          backgroundColor: "#8B5CF6",
+          backgroundColor: "#FFEA70",
         },
       ],
     },
@@ -642,7 +594,7 @@ ob_start();
         {
           label: "Number of Students",
           data: [45, 42, 38, 41],
-          backgroundColor: "#10B981",
+          backgroundColor: "#004D26",
         },
       ],
     },

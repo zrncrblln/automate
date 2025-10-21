@@ -175,7 +175,7 @@ ob_start();
     <!-- Main content area -->
     <main class="flex-1 relative overflow-y-auto focus:outline-none">
       <div class="py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <div class="flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-gray-900">Students</h1>
             <button
@@ -187,7 +187,10 @@ ob_start();
           </div>
 
           <!-- Filters -->
-          <div class="mt-6 bg-white shadow rounded-lg p-4">
+          <div
+            class="mt-6 bg-white shadow rounded-lg p-4 mx-auto"
+            style="max-width: 1200px"
+          >
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div>
                 <label
@@ -249,244 +252,291 @@ ob_start();
           </div>
 
           <!-- Students Table -->
-          <div class="mt-6 bg-white shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 sm:p-6">
-              <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                  Student List
-                </h3>
-                <div class="flex space-x-2">
-                  <button
-                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
-                  >
-                    <i data-lucide="download" class="mr-2 h-4 w-4"></i>
-                    Export
-                  </button>
-                  <button
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
-                  >
-                    <i data-lucide="printer" class="mr-2 h-4 w-4"></i>
-                    Print
-                  </button>
-                </div>
+          <div class="mt-8">
+            <!-- Table Header -->
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6"
+            >
+              <div>
+                <h2 class="table-title">Student Directory</h2>
+                <p class="mt-1 text-sm text-gray-600">
+                  Manage and view all registered students
+                </p>
               </div>
+              <div class="mt-4 sm:mt-0 flex space-x-3">
+                <button class="btn-edit">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  Export
+                </button>
+                <button class="btn-delete">
+                  <i data-lucide="printer" class="w-4 h-4"></i>
+                  Print
+                </button>
+              </div>
+            </div>
 
+            <!-- Table Container -->
+            <div
+              class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+            >
               <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
+                <table class="wesleyan-table w-full">
+                  <thead>
                     <tr>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Student
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Class
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Contact
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Status
-                      </th>
-                      <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Actions</span>
-                      </th>
+                      <th class="text-left">Student Information</th>
+                      <th class="text-left">Academic Details</th>
+                      <th class="text-left">Contact Information</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 h-10 w-10">
-                            <img
-                              class="h-10 w-10 rounded-full"
-                              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                              alt=""
-                            />
+                  <tbody>
+                    <!-- Student Row 1 -->
+                    <tr class="group">
+                      <td data-label="Student Information">
+                        <div class="flex items-center space-x-4">
+                          <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center"
+                          >
+                            <span class="text-green-700 font-semibold text-lg"
+                              >JD</span
+                            >
                           </div>
-                          <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">
+                          <div>
+                            <div class="font-semibold text-gray-900">
                               John Doe
                             </div>
-                            <div class="text-sm text-gray-500">ID: STU001</div>
+                            <div class="text-sm text-gray-500">
+                              Student ID: STU001
+                            </div>
                           </div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">Class 10A</div>
-                        <div class="text-sm text-gray-500">Section A</div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">
-                          john.doe@email.com
-                        </div>
-                        <div class="text-sm text-gray-500">
-                          +1 (555) 123-4567
+                      <td data-label="Academic Details">
+                        <div>
+                          <div class="font-medium text-gray-900">
+                            Grade 10 - Section A
+                          </div>
+                          <div class="text-sm text-gray-500">Class 10A</div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Contact Information">
+                        <div class="space-y-1">
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="mail"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            john.doe@email.com
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="phone"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            +1 (555) 123-4567
+                          </div>
+                        </div>
+                      </td>
+                      <td data-label="Status" class="text-center">
                         <span
-                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
                         >
+                          <i
+                            data-lucide="check-circle"
+                            class="w-3 h-3 mr-1"
+                          ></i>
                           Active
                         </span>
                       </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-                      >
-                        <div class="flex space-x-2">
-                          <button class="text-primary hover:text-primary-dark">
-                            <i data-lucide="eye" class="h-5 w-5"></i>
+                      <td data-label="Actions" class="text-center">
+                        <div class="flex justify-center space-x-2">
+                          <button class="btn-edit" title="Edit Student">
+                            <i data-lucide="edit" class="w-4 h-4"></i>
                           </button>
-                          <button
-                            class="text-secondary hover:text-secondary-dark"
-                          >
-                            <i data-lucide="edit" class="h-5 w-5"></i>
-                          </button>
-                          <button class="text-danger hover:text-danger-dark">
-                            <i data-lucide="trash-2" class="h-5 w-5"></i>
+                          <button class="btn-delete" title="Delete Student">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
                           </button>
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 h-10 w-10">
-                            <img
-                              class="h-10 w-10 rounded-full"
-                              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                              alt=""
-                            />
+
+                    <!-- Student Row 2 -->
+                    <tr class="group">
+                      <td data-label="Student Information">
+                        <div class="flex items-center space-x-4">
+                          <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center"
+                          >
+                            <span class="text-blue-700 font-semibold text-lg"
+                              >JS</span
+                            >
                           </div>
-                          <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">
+                          <div>
+                            <div class="font-semibold text-gray-900">
                               Jane Smith
                             </div>
-                            <div class="text-sm text-gray-500">ID: STU002</div>
+                            <div class="text-sm text-gray-500">
+                              Student ID: STU002
+                            </div>
                           </div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">Class 10B</div>
-                        <div class="text-sm text-gray-500">Section B</div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">
-                          jane.smith@email.com
-                        </div>
-                        <div class="text-sm text-gray-500">
-                          +1 (555) 987-6543
+                      <td data-label="Academic Details">
+                        <div>
+                          <div class="font-medium text-gray-900">
+                            Grade 10 - Section B
+                          </div>
+                          <div class="text-sm text-gray-500">Class 10B</div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
+                      <td data-label="Contact Information">
+                        <div class="space-y-1">
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="mail"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            jane.smith@email.com
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="phone"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            +1 (555) 987-6543
+                          </div>
+                        </div>
+                      </td>
+                      <td data-label="Status" class="text-center">
                         <span
-                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
                         >
+                          <i
+                            data-lucide="check-circle"
+                            class="w-3 h-3 mr-1"
+                          ></i>
                           Active
                         </span>
                       </td>
-                      <td
-                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-                      >
-                        <div class="flex space-x-2">
-                          <button class="text-primary hover:text-primary-dark">
-                            <i data-lucide="eye" class="h-5 w-5"></i>
+                      <td data-label="Actions" class="text-center">
+                        <div class="flex justify-center space-x-2">
+                          <button class="btn-edit" title="Edit Student">
+                            <i data-lucide="edit" class="w-4 h-4"></i>
                           </button>
-                          <button
-                            class="text-secondary hover:text-secondary-dark"
-                          >
-                            <i data-lucide="edit" class="h-5 w-5"></i>
-                          </button>
-                          <button class="text-danger hover:text-danger-dark">
-                            <i data-lucide="trash-2" class="h-5 w-5"></i>
+                          <button class="btn-delete" title="Delete Student">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
                           </button>
                         </div>
                       </td>
                     </tr>
-                    <!-- Add more rows as needed -->
+
+                    <!-- Student Row 3 -->
+                    <tr class="group">
+                      <td data-label="Student Information">
+                        <div class="flex items-center space-x-4">
+                          <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center"
+                          >
+                            <span class="text-purple-700 font-semibold text-lg"
+                              >MJ</span
+                            >
+                          </div>
+                          <div>
+                            <div class="font-semibold text-gray-900">
+                              Mike Johnson
+                            </div>
+                            <div class="text-sm text-gray-500">
+                              Student ID: STU003
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-label="Academic Details">
+                        <div>
+                          <div class="font-medium text-gray-900">
+                            Grade 9 - Section A
+                          </div>
+                          <div class="text-sm text-gray-500">Class 9A</div>
+                        </div>
+                      </td>
+                      <td data-label="Contact Information">
+                        <div class="space-y-1">
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="mail"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            mike.johnson@email.com
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i
+                              data-lucide="phone"
+                              class="w-4 h-4 mr-2 text-gray-400"
+                            ></i>
+                            +1 (555) 246-8135
+                          </div>
+                        </div>
+                      </td>
+                      <td data-label="Status" class="text-center">
+                        <span
+                          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                        >
+                          <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                          Pending
+                        </span>
+                      </td>
+                      <td data-label="Actions" class="text-center">
+                        <div class="flex justify-center space-x-2">
+                          <button class="btn-edit" title="Edit Student">
+                            <i data-lucide="edit" class="w-4 h-4"></i>
+                          </button>
+                          <button class="btn-delete" title="Delete Student">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
 
-              <!-- Pagination -->
-              <div
-                class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6"
-              >
-                <div class="flex-1 flex justify-between sm:hidden">
-                  <a
-                    href="#"
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
-                  >
-                    Previous
-                  </a>
-                  <a
-                    href="#"
-                    class="ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
-                  >
-                    Next
-                  </a>
-                </div>
+              <!-- Table Footer -->
+              <div class="bg-gray-50 px-6 py-4 border-t border-gray-100">
                 <div
-                  class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <div>
-                    <p class="text-sm text-gray-700">
-                      Showing <span class="font-medium">1</span> to
-                      <span class="font-medium">10</span> of
-                      <span class="font-medium">97</span> results
-                    </p>
+                  <div class="text-sm text-gray-700 mb-4 sm:mb-0">
+                    Showing <span class="font-medium">1</span> to
+                    <span class="font-medium">3</span> of
+                    <span class="font-medium">156</span> students
                   </div>
-                  <div>
-                    <nav
-                      class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
-                      aria-label="Pagination"
+                  <div class="flex space-x-2">
+                    <button
+                      class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                     >
-                      <a
-                        href="#"
-                        class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                      >
-                        <span class="sr-only">Previous</span>
-                        <i data-lucide="chevron-left" class="h-5 w-5"></i>
-                      </a>
-                      <a
-                        href="#"
-                        aria-current="page"
-                        class="z-10 bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                      >
-                        1
-                      </a>
-                      <a
-                        href="#"
-                        class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                      >
-                        2
-                      </a>
-                      <a
-                        href="#"
-                        class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                      >
-                        3
-                      </a>
-                      <a
-                        href="#"
-                        class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                      >
-                        <span class="sr-only">Next</span>
-                        <i data-lucide="chevron-right" class="h-5 w-5"></i>
-                      </a>
-                    </nav>
+                      Previous
+                    </button>
+                    <button
+                      class="px-3 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-lg hover:bg-green-700 transition-colors"
+                    >
+                      1
+                    </button>
+                    <button
+                      class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      2
+                    </button>
+                    <button
+                      class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      3
+                    </button>
+                    <button
+                      class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
               </div>
