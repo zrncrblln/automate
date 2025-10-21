@@ -13,7 +13,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`, `fname`, `lname`) VALUES
-(1, 'zoren', '$2y$10$H7obJEdmLzqqcPy7wQWhsOLUvrgzC8f1Y1or2Gxaza5z1PT0tvLy6', 'zoren', 'corbillon');
+(1, 'zoren', 'admin123', 'zoren', 'corbillon');
 
 -- --------------------------------------------------------
 

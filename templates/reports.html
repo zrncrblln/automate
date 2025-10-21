@@ -1,0 +1,662 @@
+<?php
+$page_title = 'Reports & Analytics - Student Management System';
+ob_start();
+?>
+<div class="flex h-screen bg-background">
+  <!-- Sidebar -->
+  <div class="hidden md:flex md:flex-shrink-0">
+    <div class="flex flex-col w-64">
+      <div class="flex flex-col h-0 flex-1 bg-white border-r border-gray-200">
+        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div class="flex items-center flex-shrink-0 px-4">
+            <div class="flex items-center">
+              <div class="bg-primary rounded-lg p-2">
+                <i data-lucide="graduation-cap" class="h-6 w-6 text-white"></i>
+              </div>
+              <span class="ml-2 text-xl font-semibold text-gray-900">SMS</span>
+            </div>
+          </div>
+          <nav class="mt-5 flex-1 px-2 bg-white space-y-1">
+            <a
+              href="dashboard.html"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="home" class="mr-3 h-5 w-5"></i>
+              Dashboard
+            </a>
+            <a
+              href="student-list.html"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="users" class="mr-3 h-5 w-5"></i>
+              Students
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="user-check" class="mr-3 h-5 w-5"></i>
+              Teachers
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
+              Courses
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="calendar" class="mr-3 h-5 w-5"></i>
+              Attendance
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="trending-up" class="mr-3 h-5 w-5"></i>
+              Grades
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md bg-primary text-white"
+            >
+              <i data-lucide="bar-chart-3" class="mr-3 h-5 w-5"></i>
+              Reports
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="settings" class="mr-3 h-5 w-5"></i>
+              Settings
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex flex-col w-0 flex-1 overflow-hidden">
+    <!-- Top navigation -->
+    <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <button
+        class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary md:hidden"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+      <div class="flex-1 px-4 flex justify-between">
+        <div class="flex-1 flex">
+          <div class="w-full flex md:ml-0">
+            <label for="search-field" class="sr-only">Search</label>
+            <div
+              class="relative w-full text-gray-400 focus-within:text-gray-600"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
+              >
+                <i data-lucide="search" class="h-5 w-5"></i>
+              </div>
+              <input
+                id="search-field"
+                class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                placeholder="Search reports..."
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="ml-4 flex items-center md:ml-6">
+          <button
+            class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          >
+            <span class="sr-only">View notifications</span>
+            <i data-lucide="bell" class="h-6 w-6"></i>
+          </button>
+
+          <!-- Profile dropdown -->
+          <div class="ml-3 relative" x-data="{ open: false }">
+            <div>
+              <button
+                @click="open = !open"
+                class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                id="user-menu-button"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span class="sr-only">Open user menu</span>
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </button>
+            </div>
+            <div
+              x-show="open"
+              @click.away="open = false"
+              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              tabindex="-1"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Your Profile</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Settings</a
+              >
+              <a
+                href="logout.php"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Sign out</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <main class="flex-1 relative overflow-y-auto focus:outline-none">
+      <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold text-gray-900">
+              Reports & Analytics
+            </h1>
+            <div class="flex space-x-2">
+              <button
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
+              >
+                <i data-lucide="download" class="mr-2 h-4 w-4"></i>
+                Export All
+              </button>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
+              >
+                <i data-lucide="printer" class="mr-2 h-4 w-4"></i>
+                Print
+              </button>
+            </div>
+          </div>
+
+          <!-- Report Filters -->
+          <div class="bg-white shadow rounded-lg p-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label
+                  for="report-type"
+                  class="block text-sm font-medium text-gray-700"
+                  >Report Type</label
+                >
+                <select
+                  id="report-type"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>All Reports</option>
+                  <option>Student Performance</option>
+                  <option>Attendance Summary</option>
+                  <option>Grade Distribution</option>
+                  <option>Enrollment Trends</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="date-range"
+                  class="block text-sm font-medium text-gray-700"
+                  >Date Range</label
+                >
+                <select
+                  id="date-range"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>Last 30 days</option>
+                  <option>Last 3 months</option>
+                  <option>Last 6 months</option>
+                  <option>Last year</option>
+                  <option>Custom range</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="class-filter"
+                  class="block text-sm font-medium text-gray-700"
+                  >Class</label
+                >
+                <select
+                  id="class-filter"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>All Classes</option>
+                  <option>Class 10A</option>
+                  <option>Class 10B</option>
+                  <option>Class 9A</option>
+                  <option>Class 9B</option>
+                </select>
+              </div>
+              <div class="flex items-end">
+                <button
+                  class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+                >
+                  <i data-lucide="filter" class="mr-2 h-5 w-5"></i>
+                  Generate Report
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Metrics -->
+          <div
+            class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8"
+          >
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i
+                      data-lucide="trending-up"
+                      class="h-6 w-6 text-success"
+                    ></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Avg. Grade
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">85.2%</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i data-lucide="calendar" class="h-6 w-6 text-primary"></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Attendance Rate
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">92.8%</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i data-lucide="users" class="h-6 w-6 text-secondary"></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Top Performers
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">156</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i
+                      data-lucide="alert-triangle"
+                      class="h-6 w-6 text-warning"
+                    ></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        At Risk
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">23</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 mb-8">
+            <!-- Grade Distribution -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                  Grade Distribution
+                </h3>
+                <div class="h-64">
+                  <canvas id="gradeDistributionChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Attendance Trends -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                  Attendance Trends
+                </h3>
+                <div class="h-64">
+                  <canvas id="attendanceTrendsChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subject Performance -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                  Subject Performance
+                </h3>
+                <div class="h-64">
+                  <canvas id="subjectPerformanceChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Enrollment by Class -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                  Enrollment by Class
+                </h3>
+                <div class="h-64">
+                  <canvas id="enrollmentByClassChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detailed Reports Table -->
+          <div class="bg-white shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 sm:p-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                Detailed Performance Report
+              </h3>
+
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Student
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Class
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Avg. Grade
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Attendance
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              John Doe
+                            </div>
+                            <div class="text-sm text-gray-500">STU001</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Class 10A
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        92.5%
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        95%
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          Excellent
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Jane Smith
+                            </div>
+                            <div class="text-sm text-gray-500">STU002</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        Class 10B
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        87.3%
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      >
+                        88%
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >
+                          Good
+                        </span>
+                      </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // Grade Distribution Chart
+  const gradeCtx = document
+    .getElementById("gradeDistributionChart")
+    .getContext("2d");
+  const gradeChart = new Chart(gradeCtx, {
+    type: "doughnut",
+    data: {
+      labels: [
+        "A (90-100%)",
+        "B (80-89%)",
+        "C (70-79%)",
+        "D (60-69%)",
+        "F (Below 60%)",
+      ],
+      datasets: [
+        {
+          data: [45, 32, 18, 8, 2],
+          backgroundColor: [
+            "#10B981",
+            "#3B82F6",
+            "#F59E0B",
+            "#8B5CF6",
+            "#EF4444",
+          ],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  });
+
+  // Attendance Trends Chart
+  const attendanceCtx = document
+    .getElementById("attendanceTrendsChart")
+    .getContext("2d");
+  const attendanceChart = new Chart(attendanceCtx, {
+    type: "line",
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      datasets: [
+        {
+          label: "Attendance Rate (%)",
+          data: [88, 92, 89, 94, 91, 93],
+          borderColor: "#3B82F6",
+          backgroundColor: "rgba(59, 130, 246, 0.1)",
+          tension: 0.4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: false,
+          max: 100,
+        },
+      },
+    },
+  });
+
+  // Subject Performance Chart
+  const subjectCtx = document
+    .getElementById("subjectPerformanceChart")
+    .getContext("2d");
+  const subjectChart = new Chart(subjectCtx, {
+    type: "bar",
+    data: {
+      labels: ["Math", "Science", "English", "History", "Art"],
+      datasets: [
+        {
+          label: "Average Grade (%)",
+          data: [87, 84, 91, 78, 93],
+          backgroundColor: "#8B5CF6",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: false,
+          max: 100,
+        },
+      },
+    },
+  });
+
+  // Enrollment by Class Chart
+  const enrollmentCtx = document
+    .getElementById("enrollmentByClassChart")
+    .getContext("2d");
+  const enrollmentChart = new Chart(enrollmentCtx, {
+    type: "bar",
+    data: {
+      labels: ["Class 9A", "Class 9B", "Class 10A", "Class 10B"],
+      datasets: [
+        {
+          label: "Number of Students",
+          data: [45, 42, 38, 41],
+          backgroundColor: "#10B981",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+</script>
+<?php
+$content = ob_get_clean();
+include 'base.html';
+?>

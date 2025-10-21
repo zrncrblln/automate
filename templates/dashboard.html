@@ -1,0 +1,425 @@
+<?php
+$page_title = 'Dashboard - Student Management System';
+ob_start();
+?>
+<div class="flex h-screen bg-background">
+  <!-- Sidebar -->
+  <div class="hidden md:flex md:flex-shrink-0">
+    <div class="flex flex-col w-64">
+      <div class="flex flex-col h-0 flex-1 bg-white border-r border-gray-200">
+        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div class="flex items-center flex-shrink-0 px-4">
+            <div class="flex items-center">
+              <div class="bg-primary rounded-lg p-2">
+                <i data-lucide="graduation-cap" class="h-6 w-6 text-white"></i>
+              </div>
+              <span class="ml-2 text-xl font-semibold text-gray-900">SMS</span>
+            </div>
+          </div>
+          <nav class="mt-5 flex-1 px-2 bg-white space-y-1">
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md bg-primary text-white"
+            >
+              <i data-lucide="home" class="mr-3 h-5 w-5"></i>
+              Dashboard
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="users" class="mr-3 h-5 w-5"></i>
+              Students
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="user-check" class="mr-3 h-5 w-5"></i>
+              Teachers
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
+              Courses
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="calendar" class="mr-3 h-5 w-5"></i>
+              Attendance
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="trending-up" class="mr-3 h-5 w-5"></i>
+              Grades
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="bar-chart-3" class="mr-3 h-5 w-5"></i>
+              Reports
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="settings" class="mr-3 h-5 w-5"></i>
+              Settings
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex flex-col w-0 flex-1 overflow-hidden">
+    <!-- Top navigation -->
+    <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <button
+        class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary md:hidden"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+      <div class="flex-1 px-4 flex justify-between">
+        <div class="flex-1 flex">
+          <div class="w-full flex md:ml-0">
+            <label for="search-field" class="sr-only">Search</label>
+            <div
+              class="relative w-full text-gray-400 focus-within:text-gray-600"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
+              >
+                <i data-lucide="search" class="h-5 w-5"></i>
+              </div>
+              <input
+                id="search-field"
+                class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                placeholder="Search..."
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="ml-4 flex items-center md:ml-6">
+          <button
+            class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          >
+            <span class="sr-only">View notifications</span>
+            <i data-lucide="bell" class="h-6 w-6"></i>
+          </button>
+
+          <!-- Profile dropdown -->
+          <div class="ml-3 relative" x-data="{ open: false }">
+            <div>
+              <button
+                @click="open = !open"
+                class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                id="user-menu-button"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span class="sr-only">Open user menu</span>
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </button>
+            </div>
+            <div
+              x-show="open"
+              @click.away="open = false"
+              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              tabindex="-1"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Your Profile</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Settings</a
+              >
+              <a
+                href="logout.php"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Sign out</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <main class="flex-1 relative overflow-y-auto focus:outline-none">
+      <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <!-- Stats cards -->
+          <div
+            class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mt-6"
+          >
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i data-lucide="users" class="h-6 w-6 text-primary"></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Total Students
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">1,250</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i
+                      data-lucide="user-check"
+                      class="h-6 w-6 text-secondary"
+                    ></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Teachers
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">85</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i data-lucide="building" class="h-6 w-6 text-success"></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Classes
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">12</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <i data-lucide="book-open" class="h-6 w-6 text-warning"></i>
+                  </div>
+                  <div class="ml-5 w-0 flex-1">
+                    <dl>
+                      <dt class="text-sm font-medium text-gray-500 truncate">
+                        Subjects
+                      </dt>
+                      <dd class="text-lg font-medium text-gray-900">45</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts and recent activity -->
+          <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 mt-8">
+            <!-- Enrollment Chart -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Enrollment Trends
+                </h3>
+                <div class="mt-5">
+                  <canvas
+                    id="enrollmentChart"
+                    width="400"
+                    height="200"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="p-5">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Recent Activity
+                </h3>
+                <div class="mt-5">
+                  <ul class="divide-y divide-gray-200">
+                    <li class="py-3">
+                      <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                          <i
+                            data-lucide="user-plus"
+                            class="h-5 w-5 text-success"
+                          ></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                          <p class="text-sm font-medium text-gray-900 truncate">
+                            New student enrolled
+                          </p>
+                          <p class="text-sm text-gray-500">
+                            John Doe joined Class 10A
+                          </p>
+                        </div>
+                        <div class="text-sm text-gray-500">2h ago</div>
+                      </div>
+                    </li>
+                    <li class="py-3">
+                      <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                          <i
+                            data-lucide="file-text"
+                            class="h-5 w-5 text-primary"
+                          ></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                          <p class="text-sm font-medium text-gray-900 truncate">
+                            Grade submitted
+                          </p>
+                          <p class="text-sm text-gray-500">
+                            Mathematics exam results posted
+                          </p>
+                        </div>
+                        <div class="text-sm text-gray-500">4h ago</div>
+                      </div>
+                    </li>
+                    <li class="py-3">
+                      <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                          <i
+                            data-lucide="calendar"
+                            class="h-5 w-5 text-secondary"
+                          ></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                          <p class="text-sm font-medium text-gray-900 truncate">
+                            Attendance marked
+                          </p>
+                          <p class="text-sm text-gray-500">
+                            Class 9B attendance updated
+                          </p>
+                        </div>
+                        <div class="text-sm text-gray-500">6h ago</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="mt-8">
+            <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+              Quick Actions
+            </h3>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <button
+                class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
+              >
+                <i data-lucide="user-plus" class="mr-2 h-5 w-5"></i>
+                Add Student
+              </button>
+              <button
+                class="bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
+              >
+                <i data-lucide="book-open" class="mr-2 h-5 w-5"></i>
+                Add Course
+              </button>
+              <button
+                class="bg-success hover:bg-success-dark text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
+              >
+                <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
+                Mark Attendance
+              </button>
+              <button
+                class="bg-warning hover:bg-warning-dark text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center"
+              >
+                <i data-lucide="trending-up" class="mr-2 h-5 w-5"></i>
+                View Reports
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // Enrollment Chart
+  const ctx = document.getElementById("enrollmentChart").getContext("2d");
+  const enrollmentChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      datasets: [
+        {
+          label: "New Enrollments",
+          data: [12, 19, 3, 5, 2, 3],
+          borderColor: "#3B82F6",
+          backgroundColor: "rgba(59, 130, 246, 0.1)",
+          tension: 0.4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: false,
+        },
+      },
+    },
+  });
+</script>
+<?php
+$content = ob_get_clean();
+include 'base.html';
+?>

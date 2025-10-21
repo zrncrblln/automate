@@ -1,0 +1,508 @@
+<?php
+$page_title = 'Students - Student Management System';
+ob_start();
+?>
+<div class="flex h-screen bg-background">
+  <!-- Sidebar -->
+  <div class="hidden md:flex md:flex-shrink-0">
+    <div class="flex flex-col w-64">
+      <div class="flex flex-col h-0 flex-1 bg-white border-r border-gray-200">
+        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div class="flex items-center flex-shrink-0 px-4">
+            <div class="flex items-center">
+              <div class="bg-primary rounded-lg p-2">
+                <i data-lucide="graduation-cap" class="h-6 w-6 text-white"></i>
+              </div>
+              <span class="ml-2 text-xl font-semibold text-gray-900">SMS</span>
+            </div>
+          </div>
+          <nav class="mt-5 flex-1 px-2 bg-white space-y-1">
+            <a
+              href="dashboard.html"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="home" class="mr-3 h-5 w-5"></i>
+              Dashboard
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md bg-primary text-white"
+            >
+              <i data-lucide="users" class="mr-3 h-5 w-5"></i>
+              Students
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="user-check" class="mr-3 h-5 w-5"></i>
+              Teachers
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="book-open" class="mr-3 h-5 w-5"></i>
+              Courses
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="calendar" class="mr-3 h-5 w-5"></i>
+              Attendance
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="trending-up" class="mr-3 h-5 w-5"></i>
+              Grades
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="bar-chart-3" class="mr-3 h-5 w-5"></i>
+              Reports
+            </a>
+            <a
+              href="#"
+              class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            >
+              <i data-lucide="settings" class="mr-3 h-5 w-5"></i>
+              Settings
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex flex-col w-0 flex-1 overflow-hidden">
+    <!-- Top navigation -->
+    <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <button
+        class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary md:hidden"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+      <div class="flex-1 px-4 flex justify-between">
+        <div class="flex-1 flex">
+          <div class="w-full flex md:ml-0">
+            <label for="search-field" class="sr-only">Search</label>
+            <div
+              class="relative w-full text-gray-400 focus-within:text-gray-600"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
+              >
+                <i data-lucide="search" class="h-5 w-5"></i>
+              </div>
+              <input
+                id="search-field"
+                class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                placeholder="Search students..."
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="ml-4 flex items-center md:ml-6">
+          <button
+            class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          >
+            <span class="sr-only">View notifications</span>
+            <i data-lucide="bell" class="h-6 w-6"></i>
+          </button>
+
+          <!-- Profile dropdown -->
+          <div class="ml-3 relative" x-data="{ open: false }">
+            <div>
+              <button
+                @click="open = !open"
+                class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                id="user-menu-button"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span class="sr-only">Open user menu</span>
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </button>
+            </div>
+            <div
+              x-show="open"
+              @click.away="open = false"
+              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              tabindex="-1"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Your Profile</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Settings</a
+              >
+              <a
+                href="logout.php"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                tabindex="-1"
+                >Sign out</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <main class="flex-1 relative overflow-y-auto focus:outline-none">
+      <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-semibold text-gray-900">Students</h1>
+            <button
+              class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-lg transition duration-300 flex items-center"
+            >
+              <i data-lucide="user-plus" class="mr-2 h-5 w-5"></i>
+              Add Student
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="mt-6 bg-white shadow rounded-lg p-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label
+                  for="class-filter"
+                  class="block text-sm font-medium text-gray-700"
+                  >Class</label
+                >
+                <select
+                  id="class-filter"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>All Classes</option>
+                  <option>Class 10A</option>
+                  <option>Class 10B</option>
+                  <option>Class 9A</option>
+                  <option>Class 9B</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="section-filter"
+                  class="block text-sm font-medium text-gray-700"
+                  >Section</label
+                >
+                <select
+                  id="section-filter"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>All Sections</option>
+                  <option>Section A</option>
+                  <option>Section B</option>
+                  <option>Section C</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="status-filter"
+                  class="block text-sm font-medium text-gray-700"
+                  >Status</label
+                >
+                <select
+                  id="status-filter"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                >
+                  <option>All Status</option>
+                  <option>Active</option>
+                  <option>Inactive</option>
+                </select>
+              </div>
+              <div class="flex items-end">
+                <button
+                  class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+                >
+                  <i data-lucide="filter" class="mr-2 h-5 w-5"></i>
+                  Apply Filters
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Students Table -->
+          <div class="mt-6 bg-white shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Student List
+                </h3>
+                <div class="flex space-x-2">
+                  <button
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
+                  >
+                    <i data-lucide="download" class="mr-2 h-4 w-4"></i>
+                    Export
+                  </button>
+                  <button
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm"
+                  >
+                    <i data-lucide="printer" class="mr-2 h-4 w-4"></i>
+                    Print
+                  </button>
+                </div>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Student
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Class
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Contact
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Status
+                      </th>
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Actions</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              John Doe
+                            </div>
+                            <div class="text-sm text-gray-500">ID: STU001</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">Class 10A</div>
+                        <div class="text-sm text-gray-500">Section A</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                          john.doe@email.com
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          +1 (555) 123-4567
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          Active
+                        </span>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button class="text-primary hover:text-primary-dark">
+                            <i data-lucide="eye" class="h-5 w-5"></i>
+                          </button>
+                          <button
+                            class="text-secondary hover:text-secondary-dark"
+                          >
+                            <i data-lucide="edit" class="h-5 w-5"></i>
+                          </button>
+                          <button class="text-danger hover:text-danger-dark">
+                            <i data-lucide="trash-2" class="h-5 w-5"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Jane Smith
+                            </div>
+                            <div class="text-sm text-gray-500">ID: STU002</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">Class 10B</div>
+                        <div class="text-sm text-gray-500">Section B</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                          jane.smith@email.com
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          +1 (555) 987-6543
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          Active
+                        </span>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+                      >
+                        <div class="flex space-x-2">
+                          <button class="text-primary hover:text-primary-dark">
+                            <i data-lucide="eye" class="h-5 w-5"></i>
+                          </button>
+                          <button
+                            class="text-secondary hover:text-secondary-dark"
+                          >
+                            <i data-lucide="edit" class="h-5 w-5"></i>
+                          </button>
+                          <button class="text-danger hover:text-danger-dark">
+                            <i data-lucide="trash-2" class="h-5 w-5"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <div
+                class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6"
+              >
+                <div class="flex-1 flex justify-between sm:hidden">
+                  <a
+                    href="#"
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                  >
+                    Previous
+                  </a>
+                  <a
+                    href="#"
+                    class="ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                  >
+                    Next
+                  </a>
+                </div>
+                <div
+                  class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"
+                >
+                  <div>
+                    <p class="text-sm text-gray-700">
+                      Showing <span class="font-medium">1</span> to
+                      <span class="font-medium">10</span> of
+                      <span class="font-medium">97</span> results
+                    </p>
+                  </div>
+                  <div>
+                    <nav
+                      class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+                      aria-label="Pagination"
+                    >
+                      <a
+                        href="#"
+                        class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      >
+                        <span class="sr-only">Previous</span>
+                        <i data-lucide="chevron-left" class="h-5 w-5"></i>
+                      </a>
+                      <a
+                        href="#"
+                        aria-current="page"
+                        class="z-10 bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                      >
+                        1
+                      </a>
+                      <a
+                        href="#"
+                        class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                      >
+                        2
+                      </a>
+                      <a
+                        href="#"
+                        class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                      >
+                        3
+                      </a>
+                      <a
+                        href="#"
+                        class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      >
+                        <span class="sr-only">Next</span>
+                        <i data-lucide="chevron-right" class="h-5 w-5"></i>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+</script>
+<?php
+$content = ob_get_clean();
+include 'base.html';
+?>
