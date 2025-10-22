@@ -1,6 +1,7 @@
-# TODO: Make searchKey support longer/partial matches
-
-- [x] Update `admin/data/student.php`: Modify `searchStudents` function to use `'%' . $key . '%'` for partial matching
-- [x] Update `admin/data/teacher.php`: Modify `searchTeachers` function to use `'%' . $key . '%'` for partial matching
-- [x] Update `RegistrarOffice/data/student.php`: Modify `searchStudents` function to use `'%' . $key . '%'` for partial matching
-- [x] Test search functionality in admin and Registrar Office sections (syntax checked, no errors)
+- [x] Remove Random button from Teacher/pass.php
+- [x] Remove Random button from Student/pass.php
+- [x] Remove Random button from RegistrarOffice/student-add.php
+- [x] Remove Random button from admin/registrar-office-add.php
+- [x] Remove Random button from admin/student-edit.php
+- [x] Remove Random button from admin/teacher-edit.php
+- [x] Remove Random button from admin/registrar-office-edit.php
