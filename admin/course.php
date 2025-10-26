@@ -29,9 +29,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($courses != 0) {
-        ?>
-        <div class="container mt-18">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Subjects</h1>
+            <p class="header-subtitle">Manage course subjects and curriculum</p>
+          </div>
+        </section>
+
+        <?php if ($courses != 0) { ?>
           <a href="course-add.php" class="btn btn-dark">Add New Course</a>
 
           <?php if (isset($_GET['error'])) { ?>

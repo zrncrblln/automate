@@ -27,9 +27,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($sections != 0) {
-        ?>
-        <div class="container mt-5">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Sections</h1>
+            <p class="header-subtitle">Manage class sections and groupings</p>
+          </div>
+        </section>
+
+        <?php if ($sections != 0) { ?>
           <a href="section-add.php" class="btn btn-dark">Add New Section</a>
 
           <?php if (isset($_GET['error'])) { ?>

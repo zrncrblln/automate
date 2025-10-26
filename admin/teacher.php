@@ -35,9 +35,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($teachers != 0) {
-        ?>
-        <div class="container mt-5">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Manage Professors</h1>
+            <p class="header-subtitle">Add, edit, and manage faculty members</p>
+          </div>
+        </section>
+
+        <?php if ($teachers != 0) { ?>
           <div class="row mb-3">
             <div class="col-6">
               <div class="d-flex gap-2">

@@ -32,9 +32,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($students != 0) {
-        ?>
-        <div class="container mt-5">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Manage Students</h1>
+            <p class="header-subtitle">Add, edit, and manage student records</p>
+          </div>
+        </section>
+
+        <?php if ($students != 0) { ?>
           <div class="row mb-3">
             <div class="col-6">
               <div class="d-flex gap-2">

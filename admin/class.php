@@ -29,9 +29,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($classes != 0) {
-        ?>
-        <div class="container mt-5">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Departments</h1>
+            <p class="header-subtitle">Manage academic departments and class structures</p>
+          </div>
+        </section>
+
+        <?php if ($classes != 0) { ?>
           <a href="class-add.php" class="btn btn-dark">Add New Class</a>
 
           <?php if (isset($_GET['error'])) { ?>

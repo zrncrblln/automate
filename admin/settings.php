@@ -32,7 +32,7 @@ if (
 
       <div class="dashboard-container settings-page">
         <!-- Settings Header -->
-        <section class="settings-header">
+        <section class="page-header">
           <div class="header-content">
             <h1 class="header-title">School Settings</h1>
             <p class="header-subtitle">Configure your school information and academic year details</p>

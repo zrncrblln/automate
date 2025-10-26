@@ -1,9 +1,16 @@
-# TODO: Redesign admin/settings.php
+# TODO: Add Professional Headers to All Admin Pages
 
 ## Tasks
 
-- [ ] Update outer container to use `dashboard-container` class for consistent spacing and remove excessive margins
-- [ ] Add a professional header section similar to dashboard pages with gradient background and title
-- [ ] Expand the settings form to utilize full width within the container, removing constrained width styles
-- [ ] Improve form field layout with better grid spacing and ensure it aligns with other pages' space utilization
-- [ ] Test responsiveness and ensure the design looks professional on different screen sizes
+- [x] Update CSS class from .settings-header to .page-header in style.css
+- [x] Update settings.php to use .page-header class
+- [x] Add header to admin/index.php (Dashboard)
+- [x] Add header to admin/teacher.php (Manage Professors)
+- [x] Add header to admin/student.php (Manage Students)
+- [x] Add header to admin/class.php (Departments)
+- [x] Add header to admin/section.php (Sections)
+- [x] Add header to admin/grade.php (Grades)
+- [x] Add header to admin/course.php (Subjects)
+- [x] Add header to admin/registrar-office.php (Registrar Office)
+- [x] Add header to admin/message.php (Messages)
+- [x] Test all pages for proper header display and responsiveness

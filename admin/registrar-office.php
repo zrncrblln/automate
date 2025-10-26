@@ -27,9 +27,17 @@ if (
     <body>
       <?php
       include "inc/navbar.php";
-      if ($r_users != 0) {
-        ?>
-        <div class="container mt-5">
+      ?>
+      <div class="dashboard-container">
+        <!-- Page Header -->
+        <section class="page-header">
+          <div class="header-content">
+            <h1 class="header-title">Registrar Office</h1>
+            <p class="header-subtitle">Manage registrar office staff and administrative users</p>
+          </div>
+        </section>
+
+        <?php if ($r_users != 0) { ?>
           <a href="registrar-office-add.php" class="btn btn-dark">Add New User</a>
 
           <?php if (isset($_GET['error'])) { ?>

@@ -1472,12 +1472,12 @@ body .container {
   opacity: 0.7;
 }
 
-/* Settings Page Styles */
+/* Page Header Styles */
 .settings-page {
   margin-top: 5rem !important;
 }
 
-.settings-header {
+.page-header {
   background: var(--hero-bg);
   border-radius: var(--radius-xl);
   padding: var(--space-2xl);
@@ -1487,7 +1487,7 @@ body .container {
   overflow: hidden;
 }
 
-.settings-header::before {
+.page-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1628,7 +1628,7 @@ body .container {
   }
 
   /* Settings Responsive */
-  .settings-header {
+  .page-header {
     padding: var(--space-lg);
   }
 
