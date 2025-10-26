@@ -1036,6 +1036,20 @@ input[type="radio"].is-invalid {
   padding: var(--space-lg);
 }
 
+/* Fix for navbar overlap - ensure consistent top margin for admin pages */
+/* Target admin pages specifically by checking for navbar presence */
+body:has(nav.navbar.fixed-top) .container.mt-5,
+body:has(nav.navbar.fixed-top) .dashboard-container,
+body:has(nav.navbar.fixed-top) .container-fluid.mt-5 {
+  margin-top: 5rem !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+body .container.mt-5,
+body .dashboard-container {
+  margin-top: 5rem !important;
+}
+
 .dashboard-hero {
   background: var(--hero-bg);
   border-radius: var(--radius-xl);

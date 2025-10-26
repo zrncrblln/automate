@@ -24,7 +24,7 @@ if (
       <?php
       include "inc/navbar.php";
       ?>
-      <div class="dashboard-container" style="margin-top: 4rem;">
+      <div class="dashboard-container" style="margin-top: 5rem;">
         <!-- Hero Section with Key Metrics -->
         <section class="dashboard-hero">
           <div class="hero-content">
