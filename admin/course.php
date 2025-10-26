@@ -54,6 +54,7 @@ if (
                   <th scope="col">Course</th>
                   <th scope="col">Course Code</th>
                   <th scope="col">Grade</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>

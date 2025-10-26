@@ -52,7 +52,7 @@ if (
                 <tr>
                   <th scope="col">Department ID</th>
                   <th scope="col">Department Code</th>
-                  <th scope="col">Department Name</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
