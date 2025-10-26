@@ -104,8 +104,10 @@ if (
                       ?>
                     </td>
                     <td>
-                      <a href="student-edit.php?student_id=<?= $student['student_id'] ?>" class="btn btn-success">Edit</a>
-                      <a href="student-delete.php?student_id=<?= $student['student_id'] ?>" class="btn btn-dark">Delete</a>
+                      <div class="action-buttons">
+                        <a href="student-edit.php?student_id=<?= $student['student_id'] ?>" class="btn-edit">Edit</a>
+                        <a href="student-delete.php?student_id=<?= $student['student_id'] ?>" class="btn-delete">Delete</a>
+                      </div>
                     </td>
                   </tr>
                 <?php } ?>

@@ -53,7 +53,7 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s ease;
 
-  /* Wesleyan Table Styles */
+  /* Wesleyan Table Styles - Primary Table Design */
   .wesleyan-table {
     width: 100%;
     border-collapse: collapse;
@@ -64,6 +64,7 @@
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     margin-bottom: 1rem;
+    table-layout: fixed; /* Ensures consistent column widths */
   }
 
   .wesleyan-table thead th {
@@ -103,50 +104,77 @@
     font-family: "Poppins", sans-serif;
   }
 
-  /* Action Buttons */
+  /* Action Buttons - Improved Layout */
   .btn-edit {
     background: var(--wesleyan-green);
     color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
+    font-size: 14px;
     transition: all 0.2s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 80px;
+    text-decoration: none;
   }
 
   .btn-edit:hover {
     background: var(--wesleyan-dark-green);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
   }
 
   .btn-edit::before {
-    content: "✏️ ";
+    content: "✏️";
+    font-size: 12px;
   }
 
   .btn-delete {
-    background: var(--wesleyan-text-dark);
+    background: #dc3545;
     color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
+    font-size: 14px;
     transition: all 0.2s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 80px;
+    text-decoration: none;
   }
 
   .btn-delete:hover {
-    background: #000000;
+    background: #c82333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
   }
 
   .btn-delete::before {
-    content: "🗑️ ";
+    content: "🗑️";
+    font-size: 12px;
   }
 
-  /* Bootstrap Table Overrides */
+  /* Action Button Container */
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  /* Bootstrap Table Overrides - Standardized to 100% width */
   .table {
     width: 100%;
     margin-bottom: 1rem;
@@ -156,6 +184,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    table-layout: fixed; /* Ensures consistent column widths */
   }
 
   .table th,
@@ -196,10 +225,12 @@
   }
 
   .n-table {
+    width: 100%;
     background-color: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    table-layout: fixed; /* Ensures consistent column widths */
   }
 
   .n-table thead th {
@@ -257,11 +288,21 @@
     letter-spacing: 0.05em;
   }
 
-  /* Responsive Tables */
+  /* Responsive Tables - Hide horizontal scrollbar */
   .table-responsive {
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0 auto;
     max-width: 100%;
+  }
+
+  /* Resize # column (first column) in DataTable tables */
+  #dataTable th:first-child,
+  #dataTable td:first-child {
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    text-align: center;
+    white-space: nowrap;
   }
 
   /* Center all tables and forms */
@@ -839,9 +880,7 @@ select:focus {
   width: 450px;
 }
 
-.n-table {
-  max-width: 800px;
-}
+/* Removed max-width constraint for consistent table widths */
 
 .form-w {
   max-width: 600px;

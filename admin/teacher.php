@@ -125,8 +125,10 @@ if (
                       ?>
                     </td>
                     <td>
-                      <a href="teacher-edit.php?teacher_id=<?= $teacher['teacher_id'] ?>" class="btn btn-success">Edit</a>
-                      <a href="teacher-delete.php?teacher_id=<?= $teacher['teacher_id'] ?>" class="btn btn-dark">Delete</a>
+                      <div class="action-buttons">
+                        <a href="teacher-edit.php?teacher_id=<?= $teacher['teacher_id'] ?>" class="btn-edit">Edit</a>
+                        <a href="teacher-delete.php?teacher_id=<?= $teacher['teacher_id'] ?>" class="btn-delete">Delete</a>
+                      </div>
                     </td>
                   </tr>
                 <?php } ?>

@@ -30,12 +30,12 @@
         <li class="nav-item">
           <a class="nav-link" href="class.php">Class</a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="message.php">Message</a>
-        </li> -->
-        <!-- <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="settings.php">Settings</a>
-        </li> -->
+        </li>
       </ul>
       <ul class="navbar-nav me-right mb-2 mb-md-0">
         <li class="nav-item">
