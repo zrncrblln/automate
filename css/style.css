@@ -463,10 +463,6 @@ body.body-login {
   border-radius: var(--radius-lg);
 }
 
-.navbar-brand {
-  margin-top: 20px;
-}
-
 .navbar-brand img {
   border-radius: 50%;
 }

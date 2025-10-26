@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: var(--navbar-bg);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">
-      <img src="../logo.zxc" width="40" style="border-radius: 50%;">
+    <a class="navbar-brand" href="index.php" style="display: flex; align-items: center;">
+      <img src="../img/logozxc.png" width="60">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
