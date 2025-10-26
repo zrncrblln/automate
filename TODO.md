@@ -1,18 +1,9 @@
-# Table Standardization and Design Improvement
+# TODO: Redesign admin/settings.php
 
 ## Tasks
 
-- [ ] Update CSS to standardize all table widths to 100%
-- [ ] Enhance .wesleyan-table as the primary table style
-- [ ] Add consistent wrapper for better centering and responsiveness
-- [ ] Ensure responsive design works well on all screen sizes
-
-## Files to Edit
-
-- css/style.css
-
-## Followup Steps
-
-- [ ] Test changes by viewing table pages (admin/teacher.php, Teacher/students.php, etc.)
-- [ ] Verify responsiveness on different screen sizes
-- [ ] Check that all table classes (.table, .n-table, .wesleyan-table) have consistent appearance
+- [ ] Update outer container to use `dashboard-container` class for consistent spacing and remove excessive margins
+- [ ] Add a professional header section similar to dashboard pages with gradient background and title
+- [ ] Expand the settings form to utilize full width within the container, removing constrained width styles
+- [ ] Improve form field layout with better grid spacing and ensure it aligns with other pages' space utilization
+- [ ] Test responsiveness and ensure the design looks professional on different screen sizes

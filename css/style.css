@@ -419,6 +419,50 @@
   --space-2xl: 48px;
 
   /* Custom margin classes */
+  .mt-6 {
+    margin-top: 1.5rem !important;
+  }
+
+  .mt-7 {
+    margin-top: 1.75rem !important;
+  }
+
+  .mt-8 {
+    margin-top: 2rem !important;
+  }
+
+  .mt-9 {
+    margin-top: 2.25rem !important;
+  }
+
+  .mt-10 {
+    margin-top: 2.5rem !important;
+  }
+
+  .mt-11 {
+    margin-top: 2.75rem !important;
+  }
+
+  .mt-12 {
+    margin-top: 3rem !important;
+  }
+
+  .mt-13 {
+    margin-top: 3.25rem !important;
+  }
+
+  .mt-14 {
+    margin-top: 3.5rem !important;
+  }
+
+  .mt-15 {
+    margin-top: 3.75rem !important;
+  }
+
+  .mt-16 {
+    margin-top: 4rem !important;
+  }
+
   .mt-18 {
     margin-top: 4.5rem !important;
   }
@@ -1079,14 +1123,16 @@ input[type="radio"].is-invalid {
 /* Target admin pages specifically by checking for navbar presence */
 body:has(nav.navbar.fixed-top) .container.mt-5,
 body:has(nav.navbar.fixed-top) .dashboard-container,
-body:has(nav.navbar.fixed-top) .container-fluid.mt-5 {
+body:has(nav.navbar.fixed-top) .container-fluid.mt-5,
+body:has(nav.navbar.fixed-top) .container {
   margin-top: 5rem !important;
 }
 
 /* Fallback for browsers that don't support :has() */
 body .container.mt-5,
-body .dashboard-container {
-  margin-top: 5rem !important;
+body .dashboard-container,
+body .container {
+  margin-top: 10rem !important;
 }
 
 .dashboard-hero {
@@ -1426,6 +1472,113 @@ body .dashboard-container {
   opacity: 0.7;
 }
 
+/* Settings Page Styles */
+.settings-page {
+  margin-top: 5rem !important;
+}
+
+.settings-header {
+  background: var(--hero-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.settings-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.025em;
+}
+
+.header-subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.settings-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.settings-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--neutral-lightgray);
+}
+
+.card-header {
+  background: var(--wesleyan-green);
+  color: #ffffff;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--neutral-lightgray);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: var(--space-xl);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.setting-group label {
+  margin-bottom: var(--space-sm);
+}
+
+.setting-group input,
+.setting-group textarea {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--neutral-lightgray);
+}
+
 /* Responsive Dashboard */
 @media (max-width: 768px) {
   .dashboard-container {
@@ -1472,6 +1625,28 @@ body .dashboard-container {
   .profile-header {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Settings Responsive */
+  .settings-header {
+    padding: var(--space-lg);
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .card-body {
+    padding: var(--space-lg);
   }
 
   /* Responsive Tables */
